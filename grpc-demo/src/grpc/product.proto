@@ -1,0 +1,18 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "src/grpc";
+
+service SearchProduct{
+  rpc findProductById(ProductRequest) returns (ProductResponse);
+};
+
+message ProductRequest {
+	int32 productId = 1;
+}
+
+message ProductResponse {
+	int32 productId = 1;
+    string productName = 2;
+    string description = 3;
+}
